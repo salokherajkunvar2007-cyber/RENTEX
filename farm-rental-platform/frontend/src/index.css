@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-cream text-canopy-900 font-body antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+  }
+  :focus-visible {
+    outline: 2px solid #d4a017;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-md border border-white/60 shadow-glass rounded-xl2;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-canopy-700 px-6 py-3 text-sm font-semibold text-white shadow-card transition-all hover:bg-canopy-600 active:scale-95 disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-canopy-700 px-6 py-3 text-sm font-semibold text-canopy-700 transition-all hover:bg-canopy-700 hover:text-white active:scale-95;
+  }
+
+  .btn-accent {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-harvest-500 px-6 py-3 text-sm font-semibold text-canopy-900 shadow-card transition-all hover:bg-harvest-600 active:scale-95 disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .input-field {
+    @apply w-full rounded-xl border border-canopy-100 bg-white px-4 py-3 text-sm text-canopy-900 placeholder:text-canopy-400 focus:border-canopy-500 focus:outline-none focus:ring-2 focus:ring-canopy-200 transition-colors;
+  }
+
+  .label-text {
+    @apply mb-1.5 block text-sm font-medium text-canopy-800;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold;
+  }
+
+  .badge-pending {
+    @apply bg-harvest-100 text-harvest-700;
+  }
+  .badge-approved {
+    @apply bg-canopy-100 text-canopy-700;
+  }
+  .badge-rejected {
+    @apply bg-red-100 text-red-700;
+  }
+  .badge-cancelled {
+    @apply bg-gray-100 text-gray-600;
+  }
+  .badge-completed {
+    @apply bg-sage/20 text-canopy-700;
+  }
+}
+
+/* react-calendar theming to match the agriculture palette */
+.rc-shell .react-calendar {
+  width: 100%;
+  border: none;
+  font-family: inherit;
+  background: transparent;
+}
+.rc-shell .react-calendar__tile {
+  border-radius: 0.75rem;
+  padding: 0.75em 0.5em;
+}
+.rc-shell .react-calendar__tile--now {
+  background: #f7e7c1;
+}
+.rc-shell .react-calendar__tile--active {
+  background: #1f4d36 !important;
+  color: white;
+}
+.rc-shell .react-calendar__navigation button {
+  border-radius: 0.75rem;
+  font-weight: 600;
+}
+.rc-shell .booked-tile {
+  background: #fbdada !important;
+  color: #7a2222 !important;
+  text-decoration: line-through;
+}
