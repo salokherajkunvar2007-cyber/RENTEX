@@ -25,7 +25,10 @@ const app = express();
 
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || 'http://localhost:5173',
+    origin: [
+      'http://localhost:5173',
+      'https://rentex-3ga4smpf6-salokherajkunwar2007-3283s-projects.vercel.app',
+    ],
     credentials: true,
   })
 );
@@ -57,7 +60,7 @@ app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`);
   startReminderJob();
 });
