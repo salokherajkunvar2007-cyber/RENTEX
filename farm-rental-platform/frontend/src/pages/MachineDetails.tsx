@@ -70,7 +70,7 @@ const MachineDetails = () => {
       navigate('/login', { state: { from: { pathname: `/machines/${machine._id}/book` } } });
       return;
     }
-    if (user.role !== 'farmer') {
+    if (user.role !== 'user') {
       toast.error('Only user accounts can book machines.');
       return;
     }
