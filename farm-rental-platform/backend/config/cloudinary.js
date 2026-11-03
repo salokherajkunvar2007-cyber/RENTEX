@@ -4,6 +4,10 @@ const isCloudinaryConfigured =
   !!process.env.CLOUDINARY_CLOUD_NAME &&
   !!process.env.CLOUDINARY_API_KEY &&
   !!process.env.CLOUDINARY_API_SECRET;
+  console.log('Cloudinary configured:', isCloudinaryConfigured);
+console.log('Cloudinary cloud name exists:', !!process.env.CLOUDINARY_CLOUD_NAME);
+console.log('Cloudinary API key exists:', !!process.env.CLOUDINARY_API_KEY);
+console.log('Cloudinary API secret exists:', !!process.env.CLOUDINARY_API_SECRET);
 
 if (isCloudinaryConfigured) {
   cloudinary.config({
