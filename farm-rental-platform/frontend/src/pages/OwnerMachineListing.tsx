@@ -1,3 +1,4 @@
+import { getImageUrl } from '../api/imageUrl';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
@@ -106,7 +107,7 @@ const OwnerMachineListing = () => {
             <div key={m._id} className="glass-card overflow-hidden">
               <Link to={`/machines/${m._id}`} className="block h-40 bg-canopy-100">
                 {m.photos[0] ? (
-                  <img src={m.photos[0]} alt={m.name} className="h-full w-full object-cover" />
+                  <img src={getImageUrl(m.photos[0])} alt={m.name} className="h-full w-full object-cover" />
                 ) : (
                   <div className="flex h-full w-full items-center justify-center text-canopy-400">
                     <GiFarmTractor size={40} />

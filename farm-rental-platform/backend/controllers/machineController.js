@@ -109,7 +109,9 @@ if (!['heavy', 'household'].includes(categoryMain)) {
 
   let photos = [];
 if (req.files && req.files.length > 0) {
-  photos = req.files.map((file) => `/uploads/${file.filename}`);
+  photos = req.files.map(
+    (file) => file.path || `/uploads/${file.filename}`
+  );
 }
 
   const machine = new Machine({
@@ -379,7 +381,9 @@ for (const photo of removedPhotos) {
 // Add newly uploaded photos
 const newPhotos =
   req.files && req.files.length > 0
-    ? req.files.map((file) => `/uploads/${file.filename}`)
+    ? req.files.map(
+        (file) => file.path || `/uploads/${file.filename}`
+      )
     : [];
 
 machine.photos = [...photosToKeep, ...newPhotos];

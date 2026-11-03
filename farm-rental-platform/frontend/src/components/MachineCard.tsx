@@ -1,3 +1,4 @@
+import { getImageUrl } from '../api/imageUrl';
 import { Link } from 'react-router-dom';
 import { FiMapPin, FiStar } from 'react-icons/fi';
 import { GiFarmTractor } from 'react-icons/gi';
@@ -10,7 +11,7 @@ const unitLabel: Record<string, string> = {
 };
 
 const MachineCard = ({ machine }: { machine: Machine }) => {
-  const photo = machine.photos?.[0];
+  const photo = getImageUrl(machine.photos?.[0]);
 
   return (
     <Link

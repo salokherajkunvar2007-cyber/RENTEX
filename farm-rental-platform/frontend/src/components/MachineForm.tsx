@@ -1,3 +1,4 @@
+import { getImageUrl } from '../api/imageUrl';
 import { useState, FormEvent } from 'react';
 import toast from 'react-hot-toast';
 import { FiUploadCloud, FiX, FiPlus } from 'react-icons/fi';
@@ -475,9 +476,7 @@ const [submitting, setSubmitting] = useState(false);
 
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
         {existingPhotos.map((photo, idx) => {
-          const imageUrl = photo.startsWith('http')
-            ? photo
-            : `http://localhost:5000${photo}`;
+                    const imageUrl = getImageUrl(photo);
 
           return (
             <div
