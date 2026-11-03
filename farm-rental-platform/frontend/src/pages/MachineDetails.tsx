@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 import { FiMapPin, FiStar, FiPhone, FiTool } from 'react-icons/fi';
 import { GiFarmTractor } from 'react-icons/gi';
 import { getMachineByIdApi } from '../api/endpoints';
+import { getImageUrl } from '../api/imageUrl';
 import { getErrorMessage } from '../api/client';
 import { useAuth } from '../context/AuthContext';
 import type { Machine, User } from '../types';
@@ -85,7 +86,7 @@ const MachineDetails = () => {
           <div className="h-80 w-full overflow-hidden rounded-xl2 bg-canopy-100 sm:h-96">
             {machine.photos.length > 0 ? (
               <img
-                src={machine.photos[activePhoto]}
+                src={getImageUrl(machine.photos[activePhoto])}
                 alt={machine.name}
                 className="h-full w-full object-cover"
               />
@@ -105,7 +106,7 @@ const MachineDetails = () => {
                     idx === activePhoto ? 'border-canopy-700' : 'border-transparent'
                   }`}
                 >
-                  <img src={p} alt="" className="h-full w-full object-cover" />
+                  <img src={getImageUrl(p)} alt="" className="h-full w-full object-cover" />
                 </button>
               ))}
             </div>
